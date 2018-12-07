@@ -7,12 +7,12 @@ const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
 	entry: {
-		app: './src/index.js',
+		app: './src/index.js'
 	},
 
 	output: {
 		path: build,
-		filename: 'bundle.js',
+		filename: 'bundle.js'
 	},
 
 	module: {
@@ -31,7 +31,7 @@ module.exports = {
 				enforce: 'pre',
 				loader: 'eslint-loader?configFile=.eslintrc',
 				include: [src],
-				exclude: /node_modules/,
+				exclude: /node_modules/
 			},
 			{
 				test: /\.js$/,
@@ -40,7 +40,7 @@ module.exports = {
 					presets: ['env'],
 				},
 				include: [src],
-				exclude: /node_modules/,
+				exclude: /node_modules/
 			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -63,6 +63,6 @@ module.exports = {
 	},
 
 	plugins: [
-		new OpenBrowserPlugin({ url: 'http://localhost:3000/' }),
+		new OpenBrowserPlugin({ url: 'http://localhost:3000/' })
 	]
 };
