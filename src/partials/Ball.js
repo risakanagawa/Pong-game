@@ -2,6 +2,7 @@ import { SVG_NS } from '../settings';
 
 export class Ball {
     constructor(radius, width, height) {
+        this.ping = new Audio('public/sounds/pong-01.wav');
         this.radius = radius;
         this.boardWidth = width;
         this.boardHeight = height;
@@ -42,10 +43,10 @@ export class Ball {
                             && (this.y >= top);
             if(hit){
                 this.vx *= -1;
+                this.ping.play();
             }
 
         } else {
-            //check for player1
             const [, right, top, bottom] = player1.coordinates();
         
             const hit = (this.x - this.radius <= right)
@@ -53,6 +54,7 @@ export class Ball {
                             && (this.y >= top);
             if(hit){
                 this.vx *= -1;
+                this.ping.play();
             }
         }
     }
@@ -61,14 +63,13 @@ export class Ball {
         const hitLeft = (this.x - this.radius <= 0);
         const hitRight = (this.x + this.radius >= this.boardWidth);
         if (hitLeft) {
-            player2.score += 1;
+            player2.increaceScore();
             this.reset();
             this.direction *= -1;
         } else if (hitRight) {
-            player1.score += 1;
+            player1.increaceScore();
             this.reset();
             this.direction *= -1;
-
         }
 
     }

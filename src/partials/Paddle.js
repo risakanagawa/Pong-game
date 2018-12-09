@@ -13,17 +13,38 @@ export class Paddle {
 
         this.speed = 10;
         this.score = 0;
+        this.setEvents();
+    }
+    
+    setEvents() {
+        let keysDown = {};
+        const that = this;
 
-        document.addEventListener('keydown', event => {
-            switch (event.key) {
-                case this.up:
-                    this.y = Math.max(0, this.y - this.speed);
-                    break;
-                case this.down:
-                    this.y = Math.min(this.boardHeight - this.height, this.y + this.speed);
-                    break;
-            }
+        document.addEventListener('keydown', event => {           
+            keysDown[event.key] = true;
         });
+
+        document.addEventListener('keyup', event => {
+            keysDown[event.key] = false;
+        });
+
+        function updatePlayerPosition() {
+            if (keysDown[that.up]) {
+                that.y = Math.max(0, that.y - that.speed);
+            }
+            if (keysDown[that.down]) {
+                that.y = Math.min(that.boardHeight - that.height, that.y + that.speed);
+            }      
+        }
+        setInterval(updatePlayerPosition, 50);        
+    }
+
+    increaceScore() {
+        this.score += 1;
+    }
+
+    getScore() {
+        return this.score;
     }
 
     coordinates() {
