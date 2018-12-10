@@ -20,7 +20,8 @@ export default class Game {
 
 		this.player1Win = false;
 
-		this.btnTrigger = false;
+		this.ballTriger = KEYS.ballTrigger;
+		this.secondBall = false;
 
 		this.gameElement = document.getElementById(this.element);
 
@@ -29,8 +30,8 @@ export default class Game {
 		this.score1 = new Score(this.width / 2 - 50, 30, this.scoreFontSize);
 		this.score2 = new Score(this.width / 2 + 25, 30, this.scoreFontSize);
 
-		this.winner1 = new Score(10, 30, this.scoreFontSize);
-		this.winner2 = new Score(this.width / 2 + 120, 30, this.scoreFontSize);
+		this.winner1 = new Score(20, 30, this.scoreFontSize);
+		this.winner2 = new Score(this.width / 2 + 110, 30, this.scoreFontSize);
 
 		this.starMsg = new Score(this.width / 2 - 190, this.height / 2, this.scoreFontSize);
 
@@ -66,10 +67,14 @@ export default class Game {
 			}
 		});
 
-		const btn = document.getElementById('btn');
-		btn.addEventListener('click', () => {
-			this.btnTrigger = !this.btnTrigger;
-			this.ball2 = new Ball(this.ballRadius, this.width, this.height);
+		this.ball2 = new Ball(this.ballRadius, this.width, this.height);
+		document.addEventListener('keydown', (e) => {
+			if (e.key === this.ballTriger) {
+				this.secondBall = true;
+			}
+			if(this.pause) {
+				this.secondBall = false;
+			}
 		});
 	}
 
@@ -109,9 +114,9 @@ export default class Game {
 				this.player2.score = 0;
 
 				if (this.player1.getScore() >= this.finalScore) {
-					this.winner2.render(svg, 'WINNER');
+					this.winner2.render(svg, 'WINNER!');
 				} else {
-					this.winner1.render(svg, 'WINNER');
+					this.winner1.render(svg, 'WINNER!');
 
 				}
 
@@ -123,7 +128,7 @@ export default class Game {
 				this.winner2.render(svg, 'Player2');
 			}
 
-			if (this.btnTrigger) {
+			if (this.secondBall) {
 				this.ball2.render(svg, this.player1, this.player2);
 			}
 

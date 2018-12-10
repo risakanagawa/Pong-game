@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Pong</title>
-	</head>
-	<body>
-		<div class="game-wrapper">
-			<h1>Pong</h1>
-			<div id="game"></div>
-			<button id='btn'>ADD BALL!</button>
-			<p>Game Score :</p> <input type="number" id='finalScore' value="5" />
+
+<head>
+	<meta charset="UTF-8">
+	<title>Pong</title>
+</head>
+
+<body>
+	<div class="game-wrapper">
+		<h1>Pong</h1>
+		<div id="game"></div>
+		<div class='settingBox'>
+			<p>Space bar to start or play again.</p>
+			<label for="finalScore">Game finishes at :</label>
+			<input type="number" id='finalScore' value="5" />
+			<p>Command/Windows Key for 2nd Ball.</p>
 		</div>
 		<script type="text/javascript" src="build/bundle.js"></script>
-	</body>
+</body>
+
 </html>
