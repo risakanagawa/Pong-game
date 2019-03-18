@@ -2,6 +2,13 @@
 
 This is a Classic Pong Game. Enjoy!
 
+## Demo
+-  Appearance 
+![ponggame](https://user-images.githubusercontent.com/30381475/54567203-48fa6b00-4990-11e9-8358-e7ca97ca2e88.gif)
+
+![start](https://user-images.githubusercontent.com/30381475/49714282-2faf8900-fc01-11e8-8c59-c19b565caca8.png)
+
+
 ## Setup
 
 **Install dependencies:**
@@ -27,12 +34,7 @@ This is a Classic Pong Game. Enjoy!
 * ▼: down
 
 
-## Demo
 
--  Appearance  
-![start](https://user-images.githubusercontent.com/30381475/49714282-2faf8900-fc01-11e8-8c59-c19b565caca8.png)
-
-![playing](https://user-images.githubusercontent.com/30381475/49713888-7ac89c80-fbff-11e8-8620-e94cc1e2a30e.png)
 
 
 ## Extra Challenge
